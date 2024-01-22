@@ -10,6 +10,11 @@
       display: block;
       margin: 20px auto;
     }
+    
+    .selectArea {
+        display: flex;
+        justify-content: center;
+    }
   </style>
 </head>
 <body>
@@ -17,6 +22,7 @@
 <canvas id="faceCanvas" width="500" height="500"></canvas>
 
 <!-- Dropdown lists for customization options -->
+<div class="selectArea">
 <label for="shirtOptions">Áo:</label>
 <select id="shirtOptions" onchange="changePart('shirt')">
   <option value="img/AO/AO 1.png">Áo 1</option>
@@ -84,6 +90,7 @@
     <option value="img/TOC/TOC 7.png">Tóc 7 </option>
     <option value="img/TOC/TOC 8.png">Tóc 8 </option>
 </select>
+</div>
 
 <script>
   const canvas = document.getElementById("faceCanvas");
