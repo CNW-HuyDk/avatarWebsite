@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face Customization Game</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+      display: block;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="faceCanvas" width="500" height="500"></canvas>
+
+<!-- Dropdown lists for customization options -->
+<label for="shirtOptions">Áo:</label>
+<select id="shirtOptions" onchange="changePart('shirt')">
+  <option value="img/AO/AO 1.png">Áo 1</option>
+  <option value="img/AO/AO 2.png">Áo 2</option>
+  <option value="img/AO/AO 3.png">Áo 3</option>
+  <option value="img/AO/AO 4.png">Áo 4</option>
+</select>
+
+<label for="baseOptions">Gốc:</label>
+<select id="baseOptions" onchange="changePart('base')">
+  <option value="base1.png">Gốc 1</option>
+</select>
+
+<label for="eyesOptions">Mắt:</label>
+<select id="eyesOptions" onchange="changePart('eyes')">
+    <option value="img/MAT/MAT 1.png">Mắt 1 </option>
+    <option value="img/MAT/MAT 2.png">Mắt 2 </option>
+    <option value="img/MAT/MAT 3.png">Mắt 3 </option>
+    <option value="img/MAT/MAT 4.png">Mắt 4 </option>
+    <option value="img/MAT/MAT 5.png">Mắt 5 </option>
+    <option value="img/MAT/MAT 6.png">Mắt 6 </option>
+    <option value="img/MAT/MAT 7.png">Mắt 7 </option>
+    <option value="img/MAT/MAT 8.png">Mắt 8 </option>
+    <option value="img/MAT/MAT 9.png">Mắt 9 </option>
+</select>
+
+<label for="mouthOptions">Miệng:</label>
+<select id="mouthOptions" onchange="changePart('mouth')">
+    <option value="img/MIENG/MIENG 1.png">Miệng 1 </option>
+    <option value="img/MIENG/MIENG 2.png">Miệng 2 </option>
+    <option value="img/MIENG/MIENG 3.png">Miệng 3 </option>
+    <option value="img/MIENG/MIENG 4.png">Miệng 4 </option>
+    <option value="img/MIENG/MIENG 5.png">Miệng 5 </option>
+    <option value="img/MIENG/MIENG 6.png">Miệng 6 </option>
+    <option value="img/MIENG/MIENG 7.png">Miệng 7 </option>
+    <option value="img/MIENG/MIENG 8.png">Miệng 8 </option>
+</select>
+
+<label for="accessoryOptions">Phụ Kiện:</label>
+<select id="accessoryOptions" onchange="changePart('accessory')">
+    <option value="img/PK/PK 1.png">Phụ Kiện 1 </option>
+    <option value="img/PK/PK 2.png">Phụ Kiện 2 </option>
+    <option value="img/PK/PK 3.png">Phụ Kiện 3 </option>
+    <option value="img/PK/PK 4.png">Phụ Kiện 4 </option>
+    <option value="img/PK/PK 5.png">Phụ Kiện 5 </option>
+    <option value="img/PK/PK 6.png">Phụ Kiện 6 </option>
+</select>
+
+<label for="handOptions">Tay:</label>
+<select id="handOptions" onchange="changePart('hand')">
+    <option value="img/TAY/TAY 1.png">Tay 1 </option>
+    <option value="img/TAY/TAY 2.png">Tay 2 </option>
+    <option value="img/TAY/TAY 3.png">Tay 3 </option>
+    <option value="img/TAY/TAY 4.png">Tay 4 </option>
+</select>
+
+<label for="hairOptions">Tóc:</label>
+<select id="hairOptions" onchange="changePart('hair')">
+    <option value="img/TOC/TOC 1.png">Tóc 1 </option>
+    <option value="img/TOC/TOC 2.png">Tóc 2 </option>
+    <option value="img/TOC/TOC 3.png">Tóc 3 </option>
+    <option value="img/TOC/TOC 4.png">Tóc 4 </option>
+    <option value="img/TOC/TOC 5.png">Tóc 5 </option>
+    <option value="img/TOC/TOC 6.png">Tóc 6 </option>
+    <option value="img/TOC/TOC 7.png">Tóc 7 </option>
+    <option value="img/TOC/TOC 8.png">Tóc 8 </option>
+</select>
+
+<script>
+  const canvas = document.getElementById("faceCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Default images for customization
+  const defaultImages = {
+    base:       "img/Gốc/GOC.png",
+    hair:       "img/TOC/TOC 1.png",
+    eyes:       "img/MAT/MAT 1.png",
+    mouth:      "img/MIENG/MIENG 1.png",
+    accessory:  "img/PK/PK 1.png",
+    shirt:      "img/AO/AO 1.png",
+    hand:       "img/tay/TAY 1.png",
+  };
+
+  // Load default images
+  const loadedImages = {};
+  const imagePromises = Object.keys(defaultImages).map(key => loadImage(key, defaultImages[key]));
+
+  Promise.all(imagePromises)
+    .then(() => {
+      // Initial drawing
+      drawFace();
+    });
+
+  // Function to load images
+  function loadImage(part, src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        loadedImages[part] = img;
+        resolve();
+      };
+      img.onerror = (error) => reject(error);
+    });
+  }
+
+  // Function to draw the face with selected customization
+  function drawFace() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw each part of the face
+    Object.keys(loadedImages).forEach(part => {
+      ctx.drawImage(loadedImages[part], 0, 0, canvas.width, canvas.height);
+    });
+  }
+
+  // Function to change the selected part of the face
+  function changePart(part) {
+    const selectedOption = document.getElementById(`${part}Options`).value;
+    loadImage(part, selectedOption)
+      .then(() => drawFace())
+      .catch(error => console.error(`Error loading image for ${part}: ${error}`));
+  }
+</script>
+
+</body>
+</html>

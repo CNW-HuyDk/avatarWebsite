@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Images</title>
+    <!-- CSS style -->
+</head>
+
+<!-- Code Here -->
+<body>  
+<!-- Hình ở đây -->
+
+<div class="image-container">
+    <img id="bigImageGoc" width="500" height="500" class="image" src="img/Gốc/GOC.png" alt="Image 1">
+    <img id="bigImageAo" width="500" height="500" class="imageAo" src="img/AO/AO 1.png" alt="Image Ao">
+    <img id="bigImageMat" width="500" height="500" class="imageMat" src="img/MAT/MAT 1.png" alt="Image Mat">
+    <img id="bigImagePK" width="500" height="500" class="imagePK" src="img/PK/PK 1.png" alt="Image PK">
+    <img id="bigImageTay" width="500" height="500" class="imageTay" src="img/tay/TAY 1.png" alt="Image Tay">
+    <img id="bigImageToc" width="500" height="500" class="imageToc" src="img/TOC/TOC 1.png" alt="Image Tay">
+    <img id="bigImage" width="500" height="500" class="imageMieng" src="img/MIENG/MIENG 1.png" alt="Image 2">
+</div>
+<!-- BOX -->
+<div class="container">
+    <div class="box" onclick="changeImageAo('img/AO/AO 1.png')">Ao 1</div>
+    <div class="box" onclick="changeImageAo('img/AO/AO 2.png')">Ao 2</div>
+    <div class="box" onclick="changeImageAo('img/AO/AO 3.png')">Ao 3</div>
+    <div class="box" onclick="changeImageAo('img/AO/AO 4.png')">Ao 4</div>
+</div>
+
+<div class="container">
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 1.png')">Mắt 1</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 2.png')">Mắt 2</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 3.png')">Mắt 3</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 4.png')">Mắt 4</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 5.png')">Mắt 5</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 6.png')">Mắt 6</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 7.png')">Mắt 7</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 8.png')">Mắt 8</div>
+    <div class="box" onclick="changeImageMat('img/MAT/MAT 9.png')">Mắt 9</div>
+</div>
+
+<div class="container">
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 1.png')">Mieng 1</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 2.png')">Mieng 2</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 3.png')">Mieng 3</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 4.png')">Mieng 4</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 5.png')">Mieng 5</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 6.png')">Mieng 6</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 7.png')">Mieng 7</div>
+        <div class="box" onclick="changeImage('img/MIENG/MIENG 8.png')">Mieng 8</div>
+</div>
+
+<div class="container">
+    <div class="box" onclick="changeImagPK('img/PK/PK 1.png')">PK 1</div>
+    <div class="box" onclick="changeImagPK('img/PK/PK 2.png')">PK 2</div>
+    <div class="box" onclick="changeImagPK('img/PK/PK 3.png')">PK 3</div>
+    <div class="box" onclick="changeImagPK('img/PK/PK 4.png')">PK 4</div>
+    <div class="box" onclick="changeImagPK('img/PK/PK 5.png')">PK 5</div>
+    <div class="box" onclick="changeImagPK('img/PK/PK 6.png')">PK 6</div>
+</div>
+<div class="container">
+    <div class="box" onclick="changeImageTay('img/TAY/TAY 1.png')">Tay 1</div>
+    <div class="box" onclick="changeImageTay('img/TAY/TAY 2.png')">Tay 2</div>
+    <div class="box" onclick="changeImageTay('img/TAY/TAY 3.png')">Tay 3</div>
+    <div class="box" onclick="changeImageTay('img/TAY/TAY 4.png')">Tay 4</div>
+</div>
+<div class="container">
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 1.png')">Toc 1</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 2.png')">Toc 2</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 3.png')">Toc 3</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 4.png')">Toc 4</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 5.png')">Toc 5</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 6.png')">Toc 6</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 7.png')">Toc 7</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 8.png')">Toc 8</div>
+    <div class="box" onclick="changeImageToc('img/TOC/TOC 9.png')">Toc 9</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,3 +1,15 @@
+
+ const canvas = document.getElementById("fashionCanvas");
+
+ function customize(bodyPart) {
+    const colorInput = document.getElementById(`${bodyPart}Color`);
+    outfitColors[bodyPart] = colorInput.value;
+    drawModel();
+  }
+
+  // Initial drawing
+  drawModel();
+
 function changeImage(imageSrc) {
     var bigImage = document.getElementById('bigImage');
     bigImage.src = imageSrc;
